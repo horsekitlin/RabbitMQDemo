@@ -1,0 +1,12 @@
+{
+  "name": "rabbitmqdemo",
+  "version": "1.0.0",
+  "description": "rabbitdemo",
+  "main": "index.js",
+  "author": "Tomas",
+  "license": "MIT",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "moment": "^2.18.1"
+  }
+}
