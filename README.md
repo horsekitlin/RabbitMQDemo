@@ -89,6 +89,18 @@ Queue 資訊希望還能存在
 
 所以我們可以藉由設定 **durable** 來留存資訊
 
+### exclusive
+
+當程式結束的時候
+
+queue 也不需要存在的話
+
+我們可以在 assertQueue 的 options 中
+
+加上 {exclusive: true}
+
+代表當 程式結束同時也刪除 Queue
+
 #### persistent
 
 在發送訊息的時候可以增加一個 persistent 的參數增加發送訊息的時候減少丟失訊息的機率
