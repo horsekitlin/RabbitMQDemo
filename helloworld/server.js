@@ -6,14 +6,17 @@ amqp.connect("amqp://localhost", function(err, conn) {
     var q = "hello";
 
     ch.assertQueue(q, { durable: false });
-    ch.bindQueue(q, "logs", "");
+
     console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q);
     ch.consume(
       q,
-      function(msg) {
-        console.log(" [x] Received %s", msg.content.toString(), moment());
+      async msg => {
+        console.log(JSON.parse(msg.content.toString()));
+        // console.log(" [x] Received %s", msg.content.toString(), moment());
+        //todo
+        ch.ack(msg);
       },
-      { noAck: true }
+      { noAck: false }
     );
   });
 });

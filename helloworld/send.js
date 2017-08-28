@@ -7,8 +7,8 @@ amqp.connect("amqp://localhost", function(err, conn) {
     ch.prefetch(2);
 
     ch.assertQueue(q, { durable: false });
-    // ch.sendToQueue(q, new Buffer("Hello World!"));
-    ch.publish((exchange = ""), (routing_key = "hello"), (body = "message"));
+    ch.sendToQueue(q, new Buffer('{"hello": "world"}'));
+    //ch.publish((exchange = ""), (routing_key = "hello"), (body = "message"));
 
     setTimeout(function() {
       conn.close();
